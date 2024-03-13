@@ -6,8 +6,8 @@ void printHelp() {
     std::cout << "Password Generator\n";
     std::cout << "Usage: \n";
     std::cout << "  password_generator <-h/-help>\n";
-    std::cout << "  password_generator [-d/-digits] [-l/-lowercase] [-u/-uppercase] [-s/-special] [-S/-space] <-length length>\n";
-    std::cout << "  password_generator [-d/-digits] [-l/-lowercase] [-u/-uppercase] [-s/-special] [-S/-space] <-entropy entropy>\n";
+    std::cout << "  password-generator <-d/-digits> <-l/-lowercase> <-u/-uppercase> <-s/-special> <-S/-space> [-length length]\n";
+    std::cout << "  password-generator <-d/-digits> <-l/-lowercase> <-u/-uppercase> <-s/-special> <-S/-space> [-entropy entropy]\n";
     std::cout << "\n";
     std::cout << "Options:\n";
     std::cout << "  -h, -help: Show this help message\n";

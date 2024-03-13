@@ -5,8 +5,8 @@ This program generates secure passwords based on specified criteria such as leng
 
 ## Usage:
 `password-generator <-h/-help>`<br>
-`password-generator [-d/-digits] [-l/-lowercase] [-u/-uppercase] [-s/-special] [-S/-space] <-length length>`<br>
-`password-generator [-d/-digits] [-l/-lowercase] [-u/-uppercase] [-s/-special] [-S/-space] <-entropy entropy>`<br>
+`password-generator <-d/-digits> <-l/-lowercase> <-u/-uppercase> <-s/-special> <-S/-space> [-length length]`<br>
+`password-generator <-d/-digits> <-l/-lowercase> <-u/-uppercase> <-s/-special> <-S/-space> [-entropy entropy]`<br>
 * `-h`, `-help`: Show the help message.
 * `-d`, `-digits`: Include digits in the character set.
 * `-l`, `-lowercase`: Include lowercase letters in the character set.
