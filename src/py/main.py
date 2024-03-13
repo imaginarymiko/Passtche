@@ -1,14 +1,7 @@
+#!/usr/bin/env python3
 import sys
 from typing import List
-from pwutils import generate_password, calculate_entropy
-
-CHARACTER_SETS: List[str] = [
-    "0123456789",
-    "abcdefghijklmnopqrstuvwxyz",
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
-    " "
-]
+from pwutils import *
 
 def print_help() -> None:
     print("Password Generator")
@@ -55,7 +48,7 @@ if __name__ == "__main__":
             print_help()
             sys.exit(0)
 
-        for i, arg in enumerate(sys.argv[1:]):
+        for i, arg in enumerate(sys.argv[1:-1]):
             if arg not in valid_options:
                 raise ValueError(f"Invalid option: {arg}")
             if arg == "-length":

@@ -2,6 +2,14 @@ import random
 import math
 from typing import List
 
+CHARACTER_SETS: List[str] = [
+    "0123456789",
+    "abcdefghijklmnopqrstuvwxyz",
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+    " "
+]
+
 def get_character_set(options: List[bool]) -> str:
     character_set = ""
     for i, include in enumerate(options):
@@ -16,7 +24,7 @@ def calculate_combinations(options: List[bool]) -> float:
             combinations *= len(CHARACTER_SETS[i])
     return combinations
 
-def calculate_entropy(combinations: float) -> float:
+def calculate_entropy(password: str, options: List[bool]) -> float:
     return math.log2(calculate_combinations(options)) * len(password)
 
 def calculate_password_length(entropy: float, options: List[bool]) -> int:
