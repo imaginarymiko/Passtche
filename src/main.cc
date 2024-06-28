@@ -43,48 +43,26 @@ int main(int argc, char** argv) {
             printHelp();
             return 0;
         }
-        if (input.optionExists("-d") || input.optionExists("-digits")) {
-            options[0] = true;
-        }
-        if (input.optionExists("-l") || input.optionExists("-lowercase")) {
-            options[1] = true;
-        }
-        if (input.optionExists("-u") || input.optionExists("-uppercase")) {
-            options[2] = true;
-        }
-        if (input.optionExists("-s") || input.optionExists("-special")) {
-            options[3] = true;
-        }
-        if (input.optionExists("-S") || input.optionExists("-space")) {
-            options[4] = true;
-        }
+        if (input.optionExists("-d") || input.optionExists("-digits")) options[0] = true;
+        if (input.optionExists("-l") || input.optionExists("-lowercase")) options[1] = true;
+        if (input.optionExists("-u") || input.optionExists("-uppercase")) options[2] = true;
+        if (input.optionExists("-s") || input.optionExists("-special")) options[3] = true;
+        if (input.optionExists("-S") || input.optionExists("-space")) options[4] = true;
         if (input.optionExists("-length")) {
             std::string lengthStr = input.getOptionValue("-length");
-            if (lengthStr.empty()) {
-                throw std::invalid_argument("Length option requires a value");
-            }
+            if (lengthStr.empty()) throw std::invalid_argument("Length option requires a value");
             length = std::stoi(lengthStr);
-            if (length <= 0) {
-                throw std::invalid_argument("Length must be a positive integer");
-            }
+            if (length <= 0) throw std::invalid_argument("Length must be a positive integer");
         }
         if (input.optionExists("-entropy")) {
             useLength = false;
             std::string entropyStr = input.getOptionValue("-entropy");
-            if (entropyStr.empty()) {
-                throw std::invalid_argument("Entropy option requires a value");
-            }
+            if (entropyStr.empty()) throw std::invalid_argument("Entropy option requires a value");
             entropy = std::stoi(entropyStr);
-            if (entropy <= 0) {
-                throw std::invalid_argument("Entropy must be a positive integer");
-            }
+            if (entropy <= 0) throw std::invalid_argument("Entropy must be a positive integer");
         }
-        if (length == -1 && entropy == -1) {
-            throw std::invalid_argument("Length or entropy option is required");
-        }
-        if (length != -1 && entropy != -1) {
-            throw std::invalid_argument("Length and entropy options are mutually exclusive");
-        }
+        if (length == -1 && entropy == -1) throw std::invalid_argument("Length or entropy option is required");
+        if (length != -1 && entropy != -1) throw std::invalid_argument("Length and entropy options are mutually exclusive");
         if (useLength) {
             std::string characterSet = getCharacterSet(options);
             std::string password = generatePassword(length, characterSet);
