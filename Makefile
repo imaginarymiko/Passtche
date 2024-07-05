@@ -1,8 +1,9 @@
 CXX = g++-12
 CXXFLAGS = -std=c++20 -Wall -g -MMD
+LDFLAGS = -lssl -lcrypto -lsqlite3
 SRC_DIR = src
-BUILD_DIR = build
-EXEC = password-generator
+BUILD_DIR = bin
+EXEC = passtche
 
 # Find all source files in the source directory
 SOURCES = $(wildcard $(SRC_DIR)/*.cc)
@@ -18,7 +19,7 @@ all: $(EXEC)
 
 # Linking object files to create the executable
 $(EXEC): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 # Compiling each source file into object files
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cc

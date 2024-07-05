@@ -5,6 +5,7 @@
 #include <vector>
 
 class InputParser {
+  private:
     std::vector<std::string> args;
     std::vector<std::string> validOptions; // Optional
   public:
